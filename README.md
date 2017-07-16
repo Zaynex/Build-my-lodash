@@ -1,2 +1,2 @@
 # Build-my-lodash
-read any analyse lodash source code
+read and analyse lodash source code
