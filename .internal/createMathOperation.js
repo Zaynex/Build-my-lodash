@@ -11,10 +11,6 @@ import baseToString from './baseToString.js'
 function createMathOperation(operator, defaultValue) {
     return (value, other) => {
         let result
-        if(isNaN(value) || isNaN(value)) {
-            throw new Error("you can't add NaN")
-            return false;
-        }
         if(value === undefined && other === undefined) {
             /** 0 */
             return defaultValue
