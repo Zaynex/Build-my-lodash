@@ -10,18 +10,18 @@ import setWrapToString from './_setWrapToString.js'
 import toInteger from './toInteger.js'
 
 /** Error message constants. */
-const FUNC_ERROR_TEXT = 'Expected a function';
+const FUNC_ERROR_TEXT = 'Expected a function'
 
 /** Used to compose bitmasks for function metadata. */
-const WRAP_BIND_FLAG = 1,
-    WRAP_BIND_KEY_FLAG = 2,
-    WRAP_CURRY_FLAG = 8,
-    WRAP_CURRY_RIGHT_FLAG = 16,
-    WRAP_PARTIAL_FLAG = 32,
-    WRAP_PARTIAL_RIGHT_FLAG = 64;
+const WRAP_BIND_FLAG = 1
+const WRAP_BIND_KEY_FLAG = 2
+const WRAP_CURRY_FLAG = 8
+const WRAP_CURRY_RIGHT_FLAG = 16
+const WRAP_PARTIAL_FLAG = 32
+const WRAP_PARTIAL_RIGHT_FLAG = 64
 
 /* Built-in method references for those with the same name as other `lodash` methods. */
-const nativeMax = Math.max;
+const nativeMax = Math.max
 
 /**
  * Creates a function that either curries or invokes `func` with optional
@@ -62,8 +62,9 @@ function createWrap(func, bitmask, thisArg, partials, holders, argPos, ary, arit
   arity = arity === undefined ? arity : toInteger(arity);
   length -= holders ? holders.length : 0;
 
+  let partialRight, holdersRight
   if (bitmask & WRAP_PARTIAL_RIGHT_FLAG) {
-    let partialsRight = partials,
+        partialsRight = partials,
         holdersRight = holders;
 
     partials = holders = undefined;
