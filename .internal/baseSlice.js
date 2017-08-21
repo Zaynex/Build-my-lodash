@@ -28,3 +28,5 @@ const baseSlice = (array, start, end) => {
     }
     return result
 }
+
+export default baseSlice
