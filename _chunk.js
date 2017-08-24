@@ -7,6 +7,9 @@ import toInteger from './toInteger.js'
 
  /**
   * 自己实现的
+  后来自己思考了下， 因为纯函数，如果修改了arr，arr在其他地方就已经变了
+  可以使用 JSON.parse(JSON.stringify()) 
+  但是对于数组比较大的时候显然比较消耗性能
   */
 //  const chunk = (arr, size) => {
 //      let newArr = []
