@@ -13,27 +13,12 @@ import isArrayLikeObject from './isArrayLikeObject.js'
  */
 
 const difference = (arr1, arr2) => {
-    /**
-     *如果只是for 循环对比的话，特别低效，所以可以先 排序,再放到新的堆栈里,先取出来一个之后挨个对比（也很耗性能）
-     * 但是字符串该怎么办呢 
-     * 重写 indexOf，但是修改原型链导致其他地方的indexOf也跟着变了
-     */
-
-    arr1 = arr1.sort()
-    arr2 = arr2.sort()
-
-    const filterArr = []
-    let length = arr1.length
-    let i = -1
-    while (++i < length) {
-        if (arr2.indexOf(arr1[i])) {
-            filterArr.push(arr1[i])
-        }
-    }
-    return filterArr
+    arr1.filter((v) => {
+       return arr2.indexOf(v) < 0
+    })
 }
 
-console.log(difference([1, '2', 3], [4, 2]))
+console.log(difference([1, 2, 3], [4, 2]))
 
 /**
  * 还是老老实实看看 lodash 实现
