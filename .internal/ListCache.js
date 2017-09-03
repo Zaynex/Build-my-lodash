@@ -1,6 +1,13 @@
 import assocIndexOf from './assocIndexOf.js'
 
 class ListCache {
+    /**
+     * Creates an list cache object.
+     *模拟一个 Map 结构
+     * @private
+     * @constructor
+     * @param {Array} [entries] The key-value pairs to cache.
+     */
     constructor(entries) {
         let index = -1
         const length = entries == null ? 0 : entries.length
@@ -48,7 +55,7 @@ class ListCache {
     set(key, value) {
         const data = this.__data__
         const index = assocIndexOf(data, key)
-        
+
         if(index < 0) {
             ++this.size
             data.push([key, value])
